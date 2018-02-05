@@ -27,19 +27,19 @@ namespace WebCore
                             return ConfigureWebHost(serviceContext, url, listener)
                                 .ConfigureAppConfiguration((hostingContext, config) =>
                                 {
-                                    //var configuration = config
-                                    //    .AddJsonFile("appsettings.json", true, true)
-                                    //    .AddEnvironmentVariables()
-                                    //    .Build();
+                                    var configuration = config
+                                        .AddJsonFile("appsettings.json", true, true)
+                                        .AddEnvironmentVariables()
+                                        .Build();
 
-                                    //Log.Logger = new LoggerConfiguration()
-                                    //    .ReadFrom
-                                    //    .Configuration(configuration)
-                                    //    .CreateLogger();
+                                    Log.Logger = new LoggerConfiguration()
+                                        .ReadFrom
+                                        .Configuration(configuration)
+                                        .CreateLogger();
                                 })
                                 .ConfigureLogging((hostingContext, logging) =>
                                 {
-                                    //logging.AddSerilog(dispose: true);
+                                    logging.AddSerilog(dispose: true);
                                     logging.AddConsole();
                                     logging.AddDebug();
                                 })
